@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.sykent.uidemo.touchevent.TouchViewGroup
+        android:layout_width="360dp"
+        android:layout_height="360dp"
+        android:layout_centerInParent="true"
+        android:background="#ffffff00">
+
+        <com.sykent.uidemo.touchevent.TouchView1
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_centerInParent="true"
+            android:text="view1"
+            android:background="#ffff00ff"/>
+
+        <com.sykent.uidemo.touchevent.TouchView2
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_centerInParent="true"
+            android:text="view2"
+            android:background="#ff00ffff"/>
+
+    </com.sykent.uidemo.touchevent.TouchViewGroup>
+
+
+</RelativeLayout>

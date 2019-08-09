@@ -1,0 +1,7 @@
+include ':app'
+
+include ':common'
+project(':common').projectDir = new File('../SykentLib/common')
+
+include ':framework'
+project(':framework').projectDir = new File('../SykentLib/framework')
