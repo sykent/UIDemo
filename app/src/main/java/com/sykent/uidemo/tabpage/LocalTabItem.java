@@ -29,7 +29,7 @@ public class LocalTabItem extends LinearLayout {
         setOrientation(VERTICAL);
 
         LinearLayout.LayoutParams lParams;
-        lParams = new LayoutParams(Utils.getRealPixel(150),
+        lParams = new LayoutParams(Utils.getRealPixel3(150),
                 ViewGroup.LayoutParams.WRAP_CONTENT);
         lParams.gravity = Gravity.CENTER;
         mTextView = new TextView(getContext());

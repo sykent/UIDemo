@@ -5,3 +5,6 @@ project(':common').projectDir = new File('../SykentLib/common')
 
 include ':framework'
 project(':framework').projectDir = new File('../SykentLib/framework')
+
+include ':medialib'
+project(':medialib').projectDir = new File('../SykentLib/medialib')

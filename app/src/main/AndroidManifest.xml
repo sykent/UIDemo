@@ -5,6 +5,7 @@
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <application
 
@@ -26,6 +27,8 @@
 
         <activity android:name=".activity.EventTouchTestActivity" />
         <activity android:name=".tabpage.TabViewPageActivity" />
+        <activity android:name=".xfermode.XFermodeActivity"/>
+        <service android:name=".service.TestService"/>
     </application>
 
 </manifest>

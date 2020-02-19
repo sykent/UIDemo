@@ -1,8 +1,11 @@
 package com.sykent.uidemo;
 
 import android.Manifest;
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
@@ -14,7 +17,9 @@ import com.sykent.uidemo.activity.EventTouchTestActivity;
 import com.sykent.uidemo.main.MainItemData;
 import com.sykent.uidemo.main.MainPageAdapter;
 import com.sykent.uidemo.main.SpaceItemDecoration;
+import com.sykent.uidemo.service.TestService;
 import com.sykent.uidemo.tabpage.TabViewPageActivity;
+import com.sykent.uidemo.xfermode.XFermodeActivity;
 import com.sykent.utils.Utils;
 
 import java.util.ArrayList;
@@ -51,15 +56,15 @@ public class MainActivity extends BaseActivity {
         List<MainItemData> datas = new ArrayList<>();
         datas.add(new MainItemData("事件分发"));
         datas.add(new MainItemData("TabLayout ViewPager"));
-        datas.add(new MainItemData("探索Demo"));
-        datas.add(new MainItemData("探索Demo"));
+        datas.add(new MainItemData("XFermode 测试"));
+        datas.add(new MainItemData("绑定服务"));
         datas.add(new MainItemData("探索Demo"));
         datas.add(new MainItemData("探索Demo"));
 
         int spanCount = 3;
         mGridLayoutManager = new GridLayoutManager(this, spanCount);
         mRecyclerView.setLayoutManager(mGridLayoutManager);
-        int itemSpace = Utils.getRealPixel(10);
+        int itemSpace = Utils.getRealPixel3(10);
         mRecyclerView.setPadding(itemSpace, itemSpace, 0, 0);
         mRecyclerView.addItemDecoration(new SpaceItemDecoration(itemSpace));
 
@@ -74,6 +79,8 @@ public class MainActivity extends BaseActivity {
         });
     }
 
+    Intent intentService = null;
+
     private void jumpPage(int position) {
         switch (position) {
             case 0:
@@ -84,17 +91,31 @@ public class MainActivity extends BaseActivity {
                 intent = new Intent(this, TabViewPageActivity.class);
                 startActivity(intent);
                 break;
-//            case 2:
-//                intent = new Intent(this, GLLayoutActivity.class);
-//                startActivity(intent);
-//                break;
-//            case 3:
-//                intent = new Intent(this, EffectVideoActivity.class);
-//                startActivity(intent);
-//                break;
+            case 2:
+                intent = new Intent(this, XFermodeActivity.class);
+                startActivity(intent);
+                break;
+            case 3:
+                Intent intentService = new Intent(this, TestService.class);
+                startForegroundService(intentService);
+//                bindService(intentService, mServiceConnection, Context.BIND_AUTO_CREATE);
+                break;
             default:
         }
     }
+
+    private ServiceConnection mServiceConnection = new ServiceConnection() {
+
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+
+        }
+    };
 
     @Override
     public int provideContentViewLayoutResID() {
