@@ -1,5 +1,6 @@
 package com.sykent.uidemo.activity;
 
+import android.app.Activity;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;

@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.sykent.framework.activity.BaseActivity;
 import com.sykent.uidemo.activity.EventTouchTestActivity;
+import com.sykent.uidemo.greendao.GreenDaoActivity;
 import com.sykent.uidemo.main.MainItemData;
 import com.sykent.uidemo.main.MainPageAdapter;
 import com.sykent.uidemo.main.SpaceItemDecoration;
@@ -35,6 +36,7 @@ public class MainActivity extends BaseActivity {
     RecyclerView mRecyclerView;
 
     private MainPageAdapter mMainPageAdapter;
+
     private GridLayoutManager mGridLayoutManager;
 
     @Override
@@ -58,8 +60,9 @@ public class MainActivity extends BaseActivity {
         datas.add(new MainItemData("TabLayout ViewPager"));
         datas.add(new MainItemData("XFermode 测试"));
         datas.add(new MainItemData("绑定服务"));
+        datas.add(new MainItemData("GreenDao"));
         datas.add(new MainItemData("探索Demo"));
-        datas.add(new MainItemData("探索Demo"));
+
 
         int spanCount = 3;
         mGridLayoutManager = new GridLayoutManager(this, spanCount);
@@ -99,6 +102,11 @@ public class MainActivity extends BaseActivity {
                 Intent intentService = new Intent(this, TestService.class);
                 startForegroundService(intentService);
 //                bindService(intentService, mServiceConnection, Context.BIND_AUTO_CREATE);
+                break;
+
+            case 4:
+                intent = new Intent(this, GreenDaoActivity.class);
+                startActivity(intent);
                 break;
             default:
         }

@@ -27,8 +27,10 @@
 
         <activity android:name=".activity.EventTouchTestActivity" />
         <activity android:name=".tabpage.TabViewPageActivity" />
-        <activity android:name=".xfermode.XFermodeActivity"/>
-        <service android:name=".service.TestService"/>
+        <activity android:name=".xfermode.XFermodeActivity" />
+        <activity android:name=".greendao.GreenDaoActivity" />
+
+        <service android:name=".service.TestService" />
     </application>
 
 </manifest>
