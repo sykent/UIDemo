@@ -13,13 +13,15 @@ import androidx.appcompat.widget.AppCompatTextView;
  * @version 1.0
  * @since 2019/08/06
  */
-public class TouchView2 extends AppCompatTextView {
+public class TouchView2 extends AppCompatTextView /*implements View.OnTouchListener*/ {
     public TouchView2(Context context) {
         super(context);
     }
 
     public TouchView2(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        setClickable(true);
+//        setOnTouchListener(this);
     }
 
     @Override
@@ -28,10 +30,12 @@ public class TouchView2 extends AppCompatTextView {
             case MotionEvent.ACTION_DOWN:
                 Log.d("touch", "TouchView2:dispatchTouchEvent MotionEvent.ACTION_DOWN");
                 return super.dispatchTouchEvent(event);
+//                return true;
 
             case MotionEvent.ACTION_MOVE:
                 Log.d("touch", "TouchView2:dispatchTouchEvent MotionEvent.ACTION_MOVE");
                 return super.dispatchTouchEvent(event);
+//                return false;
 
             case MotionEvent.ACTION_UP:
                 Log.d("touch", "TouchView2:dispatchTouchEvent MotionEvent.ACTION_UP");
@@ -48,13 +52,13 @@ public class TouchView2 extends AppCompatTextView {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 Log.d("touch", "TouchView2:onTouchEvent MotionEvent.ACTION_DOWN");
-                return true;
-//                return super.onTouchEvent(event);
+                return super.onTouchEvent(event);
+//                return false;
 
             case MotionEvent.ACTION_MOVE:
                 Log.d("touch", "TouchView2:onTouchEvent MotionEvent.ACTION_MOVE");
-//                return true;
                 return super.onTouchEvent(event);
+//                return true;
 
             case MotionEvent.ACTION_UP:
                 Log.d("touch", "TouchView2:onTouchEvent MotionEvent.ACTION_UP");

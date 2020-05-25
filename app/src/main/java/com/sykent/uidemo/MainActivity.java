@@ -5,7 +5,9 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.IBinder;
+import android.os.Looper;
 import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
@@ -13,7 +15,9 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.sykent.framework.activity.BaseActivity;
+import com.sykent.ipc.Book;
 import com.sykent.uidemo.activity.EventTouchTestActivity;
+import com.sykent.uidemo.fragment.TestFragmentActivity;
 import com.sykent.uidemo.greendao.GreenDaoActivity;
 import com.sykent.uidemo.main.MainItemData;
 import com.sykent.uidemo.main.MainPageAdapter;
@@ -35,6 +39,8 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.main_page_rv)
     RecyclerView mRecyclerView;
 
+    Book aa = new Book(3, "jkf");
+
     private MainPageAdapter mMainPageAdapter;
 
     private GridLayoutManager mGridLayoutManager;
@@ -43,6 +49,8 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initListener();
+        Handler handler = new Handler(Looper.getMainLooper());
+//        handler.postDelayed(this::addWindowView, 100);
     }
 
     @Override
@@ -61,8 +69,8 @@ public class MainActivity extends BaseActivity {
         datas.add(new MainItemData("XFermode 测试"));
         datas.add(new MainItemData("绑定服务"));
         datas.add(new MainItemData("GreenDao"));
+        datas.add(new MainItemData("Fragment"));
         datas.add(new MainItemData("探索Demo"));
-
 
         int spanCount = 3;
         mGridLayoutManager = new GridLayoutManager(this, spanCount);
@@ -106,6 +114,10 @@ public class MainActivity extends BaseActivity {
 
             case 4:
                 intent = new Intent(this, GreenDaoActivity.class);
+                startActivity(intent);
+                break;
+            case 5:
+                intent = new Intent(this, TestFragmentActivity.class);
                 startActivity(intent);
                 break;
             default:

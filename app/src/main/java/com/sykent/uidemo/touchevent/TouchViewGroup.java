@@ -26,18 +26,19 @@ public class TouchViewGroup extends RelativeLayout {
             case MotionEvent.ACTION_DOWN:
                 Log.d("touch", "TouchViewGroup:onInterceptTouchEvent MotionEvent.ACTION_DOWN");
                 return super.onInterceptTouchEvent(event);
+//                return  true;
 
             case MotionEvent.ACTION_MOVE:
                 Log.d("touch", "TouchViewGroup:onInterceptTouchEvent MotionEvent.ACTION_MOVE");
-                return true;
-//                return super.onInterceptTouchEvent(event);
+//                return true;
+                return super.onInterceptTouchEvent(event);
 
             case MotionEvent.ACTION_UP:
                 Log.d("touch", "TouchViewGroup:onInterceptTouchEvent MotionEvent.ACTION_UP");
                 return super.onInterceptTouchEvent(event);
 
             default:
-                Log.d("touch","TouchViewGroup:onInterceptTouchEvent MotionEvent.default");
+                Log.d("touch", "TouchViewGroup:onInterceptTouchEvent MotionEvent.default");
                 return super.onInterceptTouchEvent(event);
         }
     }
@@ -58,7 +59,7 @@ public class TouchViewGroup extends RelativeLayout {
                 return super.dispatchTouchEvent(event);
 
             default:
-                Log.d("touch","TouchViewGroup:dispatchTouchEvent MotionEvent.default");
+                Log.d("touch", "TouchViewGroup:dispatchTouchEvent MotionEvent.default");
                 return super.dispatchTouchEvent(event);
         }
     }
@@ -68,7 +69,8 @@ public class TouchViewGroup extends RelativeLayout {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 Log.d("touch", "TouchViewGroup:onTouchEvent MotionEvent.ACTION_DOWN");
-                return super.onTouchEvent(event);
+//                return super.onTouchEvent(event);
+                return true;
 
             case MotionEvent.ACTION_MOVE:
                 Log.d("touch", "TouchViewGroup:onTouchEvent MotionEvent.ACTION_MOVE");
@@ -79,7 +81,7 @@ public class TouchViewGroup extends RelativeLayout {
                 return super.onTouchEvent(event);
 
             default:
-                Log.d("touch","TouchViewGroup:onTouchEvent MotionEvent.default");
+                Log.d("touch", "TouchViewGroup:onTouchEvent MotionEvent.default");
                 return super.onTouchEvent(event);
         }
     }
