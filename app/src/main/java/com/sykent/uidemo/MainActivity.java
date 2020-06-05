@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.sykent.framework.activity.BaseActivity;
 import com.sykent.ipc.Book;
 import com.sykent.uidemo.activity.EventTouchTestActivity;
+import com.sykent.uidemo.dagger.DaggerActivity;
 import com.sykent.uidemo.fragment.TestFragmentActivity;
 import com.sykent.uidemo.greendao.GreenDaoActivity;
 import com.sykent.uidemo.main.MainItemData;
@@ -70,12 +71,13 @@ public class MainActivity extends BaseActivity {
         datas.add(new MainItemData("绑定服务"));
         datas.add(new MainItemData("GreenDao"));
         datas.add(new MainItemData("Fragment"));
+        datas.add(new MainItemData("Dagger"));
         datas.add(new MainItemData("探索Demo"));
 
         int spanCount = 3;
         mGridLayoutManager = new GridLayoutManager(this, spanCount);
         mRecyclerView.setLayoutManager(mGridLayoutManager);
-        int itemSpace = Utils.getRealPixel3(10);
+        int itemSpace = Utils.getRealPixel(10);
         mRecyclerView.setPadding(itemSpace, itemSpace, 0, 0);
         mRecyclerView.addItemDecoration(new SpaceItemDecoration(itemSpace));
 
@@ -107,8 +109,14 @@ public class MainActivity extends BaseActivity {
                 startActivity(intent);
                 break;
             case 3:
+                try {
+                    Thread.sleep(30000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 Intent intentService = new Intent(this, TestService.class);
-                startForegroundService(intentService);
+                startService(intentService);
+//                startForegroundService(intentService);
 //                bindService(intentService, mServiceConnection, Context.BIND_AUTO_CREATE);
                 break;
 
@@ -118,6 +126,10 @@ public class MainActivity extends BaseActivity {
                 break;
             case 5:
                 intent = new Intent(this, TestFragmentActivity.class);
+                startActivity(intent);
+                break;
+            case 6:
+                intent = new Intent(this, DaggerActivity.class);
                 startActivity(intent);
                 break;
             default:

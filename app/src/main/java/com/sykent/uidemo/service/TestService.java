@@ -33,7 +33,7 @@ public class TestService extends Service {
         Log.d("TestService", "onStartCommand()");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            setForegroundService();
+//            setForegroundService();
         }
         return super.onStartCommand(intent, flags, startId);
     }
