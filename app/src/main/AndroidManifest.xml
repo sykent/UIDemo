@@ -9,7 +9,7 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
-
+        android:name="com.sykent.DemoApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -31,8 +31,10 @@
         <activity android:name=".xfermode.XFermodeActivity" />
         <activity android:name=".greendao.GreenDaoActivity" />
         <activity android:name=".fragment.TestFragmentActivity" />
+        <activity android:name=".dagger.DaggerActivity" />
 
         <service android:name=".service.TestService" />
+        <service android:name=".service.TestService2" />
     </application>
 
 </manifest>

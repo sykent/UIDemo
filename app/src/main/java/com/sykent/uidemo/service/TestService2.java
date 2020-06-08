@@ -15,34 +15,23 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 
-import com.sykent.uidemo.MainActivity;
 import com.sykent.uidemo.R;
 
-/**
- * @author Sykent.Lao e-mail:sykent.lao@gmail.com blog:https://sykent.github.io/
- * @version 1.0
- * @since 2019/12/24
- */
-public class TestService extends Service {
+public class TestService2 extends Service {
 
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.d("TestService", "onCreate()");
+        Log.d("TestService2", "onCreate()");
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.d("TestService", "onStartCommand()");
+        Log.d("TestService2", "onStartCommand()");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 //            setForegroundService();
         }
-
-        Intent intentService = new Intent(getApplicationContext(), TestService2.class);
-//                        startForegroundService(intentService);
-        startService(intentService);
-
         return super.onStartCommand(intent, flags, startId);
     }
 
@@ -63,26 +52,26 @@ public class TestService extends Service {
 
         startForeground(99999, notification);
 
-//        new Handler(Looper.getMainLooper()).postDelayed(TestService.this::stopSelf,2000);
+//        new Handler(Looper.getMainLooper()).postDelayed(TestService2.this::stopSelf,2000);
     }
 
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
-        Log.d("TestService", "onBind()");
+        Log.d("TestService2", "onBind()");
         return null;
     }
 
 
     @Override
     public boolean onUnbind(Intent intent) {
-        Log.d("TestService", "onUnbind()");
+        Log.d("TestService2", "onUnbind()");
         return super.onUnbind(intent);
     }
 
     @Override
     public void onDestroy() {
-        Log.d("TestService", "onDestroy()");
+        Log.d("TestService2", "onDestroy()");
         super.onDestroy();
     }
 }

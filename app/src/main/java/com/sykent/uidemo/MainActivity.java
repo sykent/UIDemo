@@ -17,12 +17,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.sykent.framework.activity.BaseActivity;
 import com.sykent.ipc.Book;
 import com.sykent.uidemo.activity.EventTouchTestActivity;
+import com.sykent.uidemo.dagger.DaggerActivity;
 import com.sykent.uidemo.fragment.TestFragmentActivity;
 import com.sykent.uidemo.greendao.GreenDaoActivity;
 import com.sykent.uidemo.main.MainItemData;
 import com.sykent.uidemo.main.MainPageAdapter;
 import com.sykent.uidemo.main.SpaceItemDecoration;
 import com.sykent.uidemo.service.TestService;
+import com.sykent.uidemo.service.TestService2;
 import com.sykent.uidemo.tabpage.TabViewPageActivity;
 import com.sykent.uidemo.xfermode.XFermodeActivity;
 import com.sykent.utils.Utils;
@@ -70,12 +72,13 @@ public class MainActivity extends BaseActivity {
         datas.add(new MainItemData("绑定服务"));
         datas.add(new MainItemData("GreenDao"));
         datas.add(new MainItemData("Fragment"));
+        datas.add(new MainItemData("Dagger"));
         datas.add(new MainItemData("探索Demo"));
 
         int spanCount = 3;
         mGridLayoutManager = new GridLayoutManager(this, spanCount);
         mRecyclerView.setLayoutManager(mGridLayoutManager);
-        int itemSpace = Utils.getRealPixel3(10);
+        int itemSpace = Utils.getRealPixel(10);
         mRecyclerView.setPadding(itemSpace, itemSpace, 0, 0);
         mRecyclerView.addItemDecoration(new SpaceItemDecoration(itemSpace));
 
@@ -107,8 +110,29 @@ public class MainActivity extends BaseActivity {
                 startActivity(intent);
                 break;
             case 3:
-                Intent intentService = new Intent(this, TestService.class);
-                startForegroundService(intentService);
+//                try {
+//                    Thread.sleep(30000);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Thread.sleep(7000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        Intent intentService = new Intent(MainActivity.this, TestService.class);
+                        startService(intentService);
+//                        startForegroundService(intentService);
+
+//                        intentService = new Intent(MainActivity.this, TestService2.class);
+////                        startForegroundService(intentService);
+//                        startService(intentService);
+                    }
+                }).start();
+
 //                bindService(intentService, mServiceConnection, Context.BIND_AUTO_CREATE);
                 break;
 
@@ -118,6 +142,10 @@ public class MainActivity extends BaseActivity {
                 break;
             case 5:
                 intent = new Intent(this, TestFragmentActivity.class);
+                startActivity(intent);
+                break;
+            case 6:
+                intent = new Intent(this, DaggerActivity.class);
                 startActivity(intent);
                 break;
             default:
