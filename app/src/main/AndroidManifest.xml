@@ -32,6 +32,7 @@
         <activity android:name=".greendao.GreenDaoActivity" />
         <activity android:name=".fragment.TestFragmentActivity" />
         <activity android:name=".dagger.DaggerActivity" />
+        <activity android:name="com.sykent.kotlin.KotlinActivity" />
 
         <service android:name=".service.TestService" />
         <service android:name=".service.TestService2" />

@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.sykent.framework.activity.BaseActivity;
 import com.sykent.ipc.Book;
+import com.sykent.kotlin.KotlinActivity;
 import com.sykent.uidemo.activity.EventTouchTestActivity;
 import com.sykent.uidemo.dagger.DaggerActivity;
 import com.sykent.uidemo.fragment.TestFragmentActivity;
@@ -73,6 +74,7 @@ public class MainActivity extends BaseActivity {
         datas.add(new MainItemData("GreenDao"));
         datas.add(new MainItemData("Fragment"));
         datas.add(new MainItemData("Dagger"));
+        datas.add(new MainItemData("Kotlin Test"));
         datas.add(new MainItemData("探索Demo"));
 
         int spanCount = 3;
@@ -148,6 +150,10 @@ public class MainActivity extends BaseActivity {
                 intent = new Intent(this, DaggerActivity.class);
                 startActivity(intent);
                 break;
+            case 7:
+                intent = new Intent(this, KotlinActivity.class);
+                startActivity(intent);
+
             default:
         }
     }
