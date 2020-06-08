@@ -24,6 +24,7 @@ import com.sykent.uidemo.main.MainItemData;
 import com.sykent.uidemo.main.MainPageAdapter;
 import com.sykent.uidemo.main.SpaceItemDecoration;
 import com.sykent.uidemo.service.TestService;
+import com.sykent.uidemo.service.TestService2;
 import com.sykent.uidemo.tabpage.TabViewPageActivity;
 import com.sykent.uidemo.xfermode.XFermodeActivity;
 import com.sykent.utils.Utils;
@@ -109,14 +110,29 @@ public class MainActivity extends BaseActivity {
                 startActivity(intent);
                 break;
             case 3:
-                try {
-                    Thread.sleep(30000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                Intent intentService = new Intent(this, TestService.class);
-                startService(intentService);
-//                startForegroundService(intentService);
+//                try {
+//                    Thread.sleep(30000);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Thread.sleep(7000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        Intent intentService = new Intent(MainActivity.this, TestService.class);
+                        startService(intentService);
+//                        startForegroundService(intentService);
+
+//                        intentService = new Intent(MainActivity.this, TestService2.class);
+////                        startForegroundService(intentService);
+//                        startService(intentService);
+                    }
+                }).start();
+
 //                bindService(intentService, mServiceConnection, Context.BIND_AUTO_CREATE);
                 break;
 
