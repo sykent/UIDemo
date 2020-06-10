@@ -4,8 +4,7 @@ import javax.inject.Inject;
 
 public class MainPresenter {
     private MainView mView;
-
-    @Inject
+    
     public MainPresenter(MainView mView) {
         this.mView = mView;
     }
