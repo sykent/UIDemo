@@ -1,13 +1,15 @@
 package com.sykent;
 
 import android.app.Application;
-import android.content.Intent;
 
-import com.sykent.uidemo.service.TestService;
+import com.sykent.uidemo.dagger.manual.AppContainer;
 
 public class DemoApplication extends Application {
+    public AppContainer mAppContainer;
+
     @Override
     public void onCreate() {
         super.onCreate();
+        mAppContainer = new AppContainer();
     }
 }

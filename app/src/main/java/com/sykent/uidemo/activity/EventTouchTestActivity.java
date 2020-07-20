@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.sykent.framework.activity.BaseActivity;
 import com.sykent.uidemo.R;
+import com.sykent.uidemo.databinding.ActivityEventTouchTestBinding;
 
 import butterknife.OnClick;
 
@@ -76,10 +77,18 @@ public class EventTouchTestActivity extends BaseActivity {
         }
     }
 
+    ActivityEventTouchTestBinding binding;
+
     @Override
-    public int provideContentViewLayoutResID() {
-        return R.layout.activity_event_touch_test;
+    public View provideContentView() {
+        binding = ActivityEventTouchTestBinding.inflate(getLayoutInflater());
+        return binding.getRoot();
     }
+
+    //    @Override
+//    public int provideContentViewLayoutResID() {
+//        return R.layout.activity_event_touch_test;
+//    }
 
     @Override
     public int provideTitleViewLayoutResID() {
