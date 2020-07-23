@@ -12,14 +12,23 @@ import com.sykent.DemoApplication
  */
 class LoginActivity : AppCompatActivity() {
     private lateinit var loginViewModel: LoginViewModel
+    private lateinit var loginData: LoginData
+    private lateinit var appContainer: AppContainer
 
     override fun onCreate(
             savedInstanceState: Bundle?,
             persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
 
-        val appContainer = (application as DemoApplication).mAppContainer
-        loginViewModel = LoginViewModel(appContainer.userRepository)
+        appContainer = (application as DemoApplication).mAppContainer
+        appContainer.logContainer = LoginContainer(appContainer.userRepository)
+        loginData = appContainer.logContainer!!.loginData
+        loginViewModel = appContainer.logContainer!!.loginViewModelFactory.create()
     }
 
+
+    override fun onDestroy() {
+        appContainer.logContainer = null
+        super.onDestroy()
+    }
 }

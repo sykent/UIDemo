@@ -16,5 +16,8 @@ class AppContainer {
     private val remoteDataSource = UserRemoteDataSource(retrofit)
     private val localDataSource = UserLocalDataSource()
 
-    val userRepository = UserRepository(localDataSource, remoteDataSource);
+    val userRepository = UserRepository(localDataSource, remoteDataSource)
+
+
+    var logContainer: LoginContainer? = null
 }
