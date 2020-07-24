@@ -16,16 +16,14 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var appContainer: AppContainer
 
     override fun onCreate(
-            savedInstanceState: Bundle?,
-            persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+            savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
         appContainer = (application as DemoApplication).mAppContainer
         appContainer.logContainer = LoginContainer(appContainer.userRepository)
         loginData = appContainer.logContainer!!.loginData
         loginViewModel = appContainer.logContainer!!.loginViewModelFactory.create()
     }
-
 
     override fun onDestroy() {
         appContainer.logContainer = null
