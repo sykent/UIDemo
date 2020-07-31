@@ -1,4 +1,4 @@
-package com.sykent.uidemo.dagger.android
+package com.sykent.uidemo.dagger.android.data
 
 import javax.inject.Inject
 

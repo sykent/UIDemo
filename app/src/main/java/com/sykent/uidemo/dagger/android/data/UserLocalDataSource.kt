@@ -1,4 +1,4 @@
-package com.sykent.uidemo.dagger.android
+package com.sykent.uidemo.dagger.android.data
 
 import javax.inject.Inject
 
@@ -7,5 +7,5 @@ import javax.inject.Inject
  * @version 1.0
  * @date  2020/7/23 15:56
  */
-class UserRemoteDataSource @Inject constructor() {
+class UserLocalDataSource @Inject constructor() {
 }

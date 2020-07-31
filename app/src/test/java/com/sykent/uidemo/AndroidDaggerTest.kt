@@ -1,8 +1,5 @@
 package com.sykent.uidemo
 
-import android.util.Log
-import com.sykent.uidemo.dagger.android.ApplicationGraph
-import com.sykent.uidemo.dagger.android.DaggerApplicationGraph
 import org.junit.Test
 
 /**
@@ -13,8 +10,10 @@ import org.junit.Test
 class AndroidDaggerTest {
     @Test
     fun test(): Unit {
-        val graph: ApplicationGraph = DaggerApplicationGraph.create()
-        val userRepository = graph.repository()
-        println("kkkkkk  ${userRepository.toString()}")
+//        val graph: ApplicationGraph = DaggerApplicationGraph.create()
+//        val userRepository1 = graph.repository()
+//        val userRepository2 = graph.repository()
+//        assert(userRepository1 == userRepository2)
+//        println("kkkkkk  ${userRepository1.toString()}")
     }
 }
